@@ -24,6 +24,7 @@ const roleName = "인증을 받지 못한자" // 입장 시 지급 할 역할의
 
 client.on("ready", () => {
   console.log("켰다.")
+  client.user.setPresence({ activity: { name: "!help를 쳐보세요." }, status: "online" })
 })
 
 client.on("guildMemberAdd", (member) => {
@@ -46,8 +47,8 @@ client.on("guildMemberRemove", (member) => {
 client.on("message", (message) => {
   if (message.author.bot) return
 
-  if (message.content == "돈 내려온다") {
-    return message.reply("범 내려온다야 등신아")
+  if (message.content == "ping") {
+    return message.reply("pong")
   }
 
   if (message.content == "embed") {
@@ -57,13 +58,13 @@ client.on("message", (message) => {
       .setURL("http://www.naver.com")
       .setAuthor("나긋해", img, "http://www.naver.com")
       .setThumbnail(img)
-      ////.addBlankField()  < 해당 구문은 .addField('\u200b', '\u200b') 로 대체할 수 있습니다.
+      ////.addBlankField()  < 해당 구문은 .addField('\u200b', '\u200b') 로 대체할 수 있습니다.  
       .addField("Inline field title", "Some value here")
       .addField("Inline field title", "Some value here", true)
       .addField("Inline field title", "Some value here", true)
       .addField("Inline field title", "Some value here", true)
       .addField("Inline field title", "Some value here1\nSome value here2\nSome value here3\n")
-      ////.addBlankField()  < 해당 구문은 .addField('\u200b', '\u200b') 로 대체할 수 있습니다.
+      ////.addBlankField()  < 해당 구문은 .addField('\u200b', '\u200b') 로 대체할 수 있습니다.  
       .setTimestamp()
       .setFooter("나긋해가 만듬", img)
 
