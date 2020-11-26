@@ -46,8 +46,8 @@ client.on("guildMemberRemove", (member) => {
 client.on("message", (message) => {
   if (message.author.bot) return
 
-  if (message.content == "ping") {
-    return message.reply("pong")
+  if (message.content == "돈 내려온다") {
+    return message.reply("범 내려온다야 등신아")
   }
 
   if (message.content == "embed") {
