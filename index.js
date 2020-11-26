@@ -18,7 +18,7 @@ const client = new Discord.Client({ ws: { intents: intent_list } })
 const token = process.argv.length == 2 ? process.env.token : "" // heroku를 사용하지 않을꺼라면 const token = "디스코드 봇 토큰" 으로 바꿔주세요.
 const welcomeChannelName = "welcome" // 입장 시 환영메시지를 전송 할 채널의 이름을 입력하세요.
 const byeChannelName = "welcome" // 퇴장 시 메시지를 전송 할 채널의 이름을 입력하세요.
-const welcomeChannelComment = "안녕하슈" // 입장 시 전송할 환영메시지의 내용을 입력하세요.
+const welcomeChannelComment ="안녕하슈" // 입장 시 전송할 환영메시지의 내용을 입력하세요.
 const byeChannelComment = "..." // 퇴장 시 전송할 메시지의 내용을 입력하세요.
 const roleName = "인증을 받지 못한자" // 입장 시 지급 할 역할의 이름을 적어주세요.
 
@@ -58,7 +58,7 @@ client.on("message", (message) => {
       .setURL("http://www.naver.com")
       .setAuthor("나긋해", img, "http://www.naver.com")
       .setThumbnail(img)
-      ////.addBlankField()  < 해당 구문은 .addField('\u200b', '\u200b') 로 대체할 수 있습니다.  
+      ////.addBlankField()  < 해당 구문은 .addField('\u200b', '\u200b') 로 대체할 수 있습니다. 
       .addField("Inline field title", "Some value here")
       .addField("Inline field title", "Some value here", true)
       .addField("Inline field title", "Some value here", true)
@@ -69,7 +69,7 @@ client.on("message", (message) => {
       .setFooter("나긋해가 만듬", img)
 
     message.channel.send(embed)
-  } else if (message.content == "embed2") {
+  } else if (message.content == "!help") {
     let helpImg = "https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png"
     let commandList = [
       { name: "ping", desc: "현재 핑 상태" },
@@ -87,6 +87,21 @@ client.on("message", (message) => {
     embed.addField("Commands: ", commandStr)
 
     message.channel.send(embed)
+  } else if (message.content == "!초대코드") {
+    if (message.channel.type == "dm") {
+      return message.reply("dm에서 사용할 수 없는 명령어 입니다.")
+    }
+    message.guild.channels.cache
+      .get(message.channel.id)
+      .createInvite({ maxAge: 0 }) // maxAge: 0은 무한이라는 의미, maxAge부분을 지우면 24시간으로 설정됨
+      .then((invite) => {
+        message.channel.send(invite.url)
+      })
+      .catch((err) => {
+        if (err.code == 50013) {
+          message.channel.send(`**${message.guild.channels.cache.get(message.channel.id).guild.name}** 채널 권한이 없어 초대코드 발행 실패`)
+        }
+      })
   }
 
   if (message.content.startsWith("!전체공지")) {
