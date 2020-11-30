@@ -59,8 +59,8 @@ client.on("message", (message) => {
     let img = "https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256"
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]")
     embed.setColor("#186de6")
-    embed.setAuthor("server info of 콜라곰 BOT", img)
-    embed.setFooter(`콜라곰 BOT ❤️`)
+    embed.setAuthor("server info of 버네너", img)
+    embed.setFooter(`버네너`)
     embed.addField("RAM usage", `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true)
     embed.addField("running time", `${duration}`, true)
     embed.addField("user", `${client.users.cache.size}`, true)
@@ -89,7 +89,7 @@ client.on("message", (message) => {
     let embed = new Discord.MessageEmbed()
       .setTitle("타이틀")
       .setURL("http://www.naver.com")
-      .setAuthor("나긋해", img, "http://www.naver.com")
+      .setAuthor("me", img, "http://www.naver.com")
       .setThumbnail(img)
       .addField("Inline field title", "Some value here")
       .addField("Inline field title", "Some value here", true)
@@ -97,7 +97,7 @@ client.on("message", (message) => {
       .addField("Inline field title", "Some value here", true)
       .addField("Inline field title", "Some value here1\nSome value here2\nSome value here3\n")
       .setTimestamp()
-      .setFooter("나긋해가 만듬", img)
+      .setFooter("me", img)
 
     message.channel.send(embed)
   } else if (message.content == "!help") {
@@ -113,7 +113,7 @@ client.on("message", (message) => {
       { name: "!초대코드2", desc: "봇이 들어가있는 모든 채널의 초대 코드 표기" },
     ]
     let commandStr = ""
-    let embed = new Discord.MessageEmbed().setAuthor("Help of 콜라곰 BOT", helpImg).setColor("#186de6").setFooter(`콜라곰 BOT ❤️`).setTimestamp()
+    let embed = new Discord.MessageEmbed().setAuthor("Help of 버네너봇", helpImg).setColor("#186de6").setFooter(`콜라곰 BOT ❤️`).setTimestamp()
 
     commandList.forEach((x) => {
       commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`
@@ -156,7 +156,7 @@ client.on("message", (message) => {
     if (message.member != null) {
       // 채널에서 공지 쓸 때
       let contents = message.content.slice("!전체공지2".length)
-      let embed = new Discord.MessageEmbed().setAuthor("공지 of 콜라곰 BOT").setColor("#186de6").setFooter(`콜라곰 BOT ❤️`).setTimestamp()
+      let embed = new Discord.MessageEmbed().setAuthor("공지 of 버네너봇").setColor("#186de6").setFooter(`콜라곰 BOT ❤️`).setTimestamp()
 
       embed.addField("공지: ", contents)
 
