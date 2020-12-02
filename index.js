@@ -56,7 +56,7 @@ client.on("message", (message) => {
 
   if (message.content == "!si") {
     let embed = new Discord.MessageEmbed()
-    let img = "https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256"
+    let img = "file:///C:/Users/User/AppData/Local/Microsoft/Windows/INetCache/IE/F30FLN4Y/78d37d104af4094f6fe764e2d0f3e0fb.webp"
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]")
     embed.setColor("#186de6")
     embed.setAuthor("server info of 버네너", img)
@@ -85,7 +85,7 @@ client.on("message", (message) => {
   }
 
   if (message.content == "embed") {
-    let img = "https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256"
+    let img = "file:///C:/Users/User/AppData/Local/Microsoft/Windows/INetCache/IE/F30FLN4Y/78d37d104af4094f6fe764e2d0f3e0fb.webp"
     let embed = new Discord.MessageEmbed()
       .setTitle("타이틀")
       .setURL("http://www.naver.com")
