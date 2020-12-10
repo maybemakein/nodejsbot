@@ -245,11 +245,3 @@ function changeCommandStringLength(str, limitLen = 8) {
 
   return tmp
 }
-const oneDay = 86400 * 1000 // 하루
-const C_cooldown = [] // 배열 초기화
-if(message.content === "!출첵") {
-  if(C_cooldown.indexOf(message.author.id) === -1) return message.reply("이미함 내일 ㄱ") // 배열에 유저 아이디가 존재하면 빠꾸
-  message.reply("됨") 
-  C_cooldown.push(message.author.id) // 출첵을 했을 때 cooldown 배열에 유저 아이디 추가.
-  setTimeout(() => C_cooldown.shift(message.author.id), oneDay) // 86400초 (24시간) 후 배열에서 제거. +
-}
