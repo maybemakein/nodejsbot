@@ -245,8 +245,6 @@ function changeCommandStringLength(str, limitLen = 8) {
 
   return tmp
 }
-
-client.login(token)
 const oneDay = 86400 * 1000 // 하루
 const C_cooldown = [] // 배열 초기화
 if(message.content === "!출첵") {
